@@ -82,3 +82,19 @@ PUT logstash-default-2024.01.08/_settings
   "index.routing.allocation.include._name": "node2"
 }
 ```
+
+```
+POST _cluster/reroute?retry_failed
+```
+
+```
+POST /_reindex
+{
+  "source": {
+    "index": "logstash-2022.11.15"
+  },
+  "dest": {
+    "index": "new-2022-nov-15"
+  }
+}
+```
