@@ -98,3 +98,19 @@ POST /_reindex
   }
 }
 ```
+
+List indexes using curl
+
+```
+curl -k https://username:password@localhost:9200/_cat/indices?v
+```
+
+Delete multiple indexes using curl
+
+Reference:
+
+https://opster.com/guides/elasticsearch/operations/deleting-elasticsearch-indices-using-curl/
+
+```
+curl -k -X DELETE "https://username:password@localhost:9200/index1,index2"
+```
