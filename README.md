@@ -114,3 +114,10 @@ https://opster.com/guides/elasticsearch/operations/deleting-elasticsearch-indice
 ```
 curl -k -X DELETE "https://username:password@localhost:9200/index1,index2"
 ```
+
+Change the replicas using curl command
+
+```
+curl -k -XPUT 'https://user:password@localhost:9200/_settings' -H "Content-Type: application/json" -d '
+{ "index" : { "number_of_replicas" : 0 } }'
+```
