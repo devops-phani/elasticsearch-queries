@@ -121,3 +121,9 @@ Change the replicas using curl command
 curl -k -XPUT 'https://user:password@localhost:9200/_settings' -H "Content-Type: application/json" -d '
 { "index" : { "number_of_replicas" : 0 } }'
 ```
+
+List the users
+
+```
+curl -k -X GET "https://user:password@localhost:9200/_security/user?pretty"
+```
