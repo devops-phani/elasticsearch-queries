@@ -152,4 +152,24 @@ or
 curl -k -X GET -u -u elastic:$ELASTIC_PASSWORD "https://localhost:9200/_security/user?pretty"
 ```
 
+Here's a curl command to increase the parent circuit breaker limit in Elasticsearch using the _cluster/settings API:
 
+```
+curl -k -u elastic:$ELASTIC_PASSWORD https://localhost:9200/_cluster/settings -X PUT -H "Content-Type: application/json" -d '
+{
+  "persistent": {
+    "indices.breaker.total.limit": "98%"
+  }
+}'
+```
+
+If you want the change to be temporary (until the next restart), use transient:
+
+```
+curl -k -u elastic:$ELASTIC_PASSWORD https://localhost:9200/_cluster/settings -X PUT -H "Content-Type: application/json" -d '
+{
+  "transient": {
+    "indices.breaker.total.limit": "98%"
+  }
+}'
+```
